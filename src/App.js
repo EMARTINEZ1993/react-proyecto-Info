@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+// Componentes de páginas
+// Componente de layout
+import Layout from './Components/Layout';
+import Inicio from './Pages/Inicio';
+import Props from './Pages/Props'
+import Estados from './Pages/Estados';
+
+import Hooks from './Pages/Hooks';
+import CicloVida from './Pages/CicloVida';
+import VirtualDom from './Pages/VirtualDom';
+
+
+
+
+// Estilos globales
 import './App.css';
 
-function App() {
+/**
+ * Componente principal de la aplicación que configura las rutas.
+ * 
+ * @returns {JSX.Element} Estructura de rutas de la aplicación
+ */
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Inicio />} />
+        <Route path="Props" element={<Props />} />
+        <Route path="Estados" element={<Estados />} />
+        <Route path="Hooks" element={<Hooks />} />
+        <Route path="CicloVida" element={<CicloVida />} />
+        <Route path="VirtualDom" element={<VirtualDom />} />
+       
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
